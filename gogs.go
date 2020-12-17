@@ -7,6 +7,7 @@ package gogs
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -86,5 +87,6 @@ func (c *Client) getParsedResponse(method, path string, header http.Header, body
 	if err != nil {
 		return err
 	}
+	fmt.Println(data)
 	return json.Unmarshal(data, obj)
 }
